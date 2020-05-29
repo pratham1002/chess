@@ -1,7 +1,5 @@
 const { server } = require('./app')
-
-require('./games')
-
+require('./play')
 const port = process.env.PORT || 3000
 
 server.listen(port, () => {

@@ -1,11 +1,11 @@
 const users = []
 const pairedUsers = []
 
-const addUser = ({ id, username }) => {
+const addUser = ({ id, username, room }) => {
     try {
         // Clean the data
         username = username.trim().toLowerCase()
-        
+        room = room.trim().toLowerCase()
         // Validate the data
         if (!username) {
             return {
@@ -35,7 +35,11 @@ const addUser = ({ id, username }) => {
         }
 
         // Store user
-        const user = { id, username, room: id + 'cr' }
+        const user = {
+            id,
+            username,
+            room
+        }
         users.push(user)
         return { user }
     }
@@ -63,12 +67,11 @@ const removeUser = (id) => {
 }
 
 const getUser = (id) => {
-    const pairedUser = pairedUsers.find((user) => user.id === id)
-    if (!pairedUser) {
-        return users.find((user) => user.id === id)
-    }
-    return pairedUser
+    const user = pairedUsers.find((user) => user.username === id)
+
+    return user;
 }
+
 
 const isPaired = (id) => {
     const pairedUser = pairedUsers.find((user) => user.id === id)
