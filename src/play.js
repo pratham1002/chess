@@ -27,7 +27,7 @@ io.on('connection', (socket) => {
             console.log('Paired on join', getPairedUsers())
             console.log('Unpaired', getUnpairedUsers())
 
-            callback('joined')
+            console.log('joined')
         }
         catch (e) {
             console.log(e)
