@@ -24,12 +24,17 @@ function movePiece(initial, final) {
     const finalCol = finalIdData[1]
 
     if (board[finalRow][finalCol].occupiedBy != null) {
+        // check for castling
+        if (board[initialRow][initialCol].occupiedBy.color === board[finalRow][finalCol].occupiedBy.color) {
+            // execute castling here
+            return castle(initialCol, finalCol, finalRow)
+        }
         // check if king if being killed
-        if (board[finalRow][finalCol].occupiedBy.name == "blackking") {
+        else if (board[finalRow][finalCol].occupiedBy.name == "blackking") {
             window.alert("white wins")
             window.location.reload()
         }
-        if (board[finalRow][finalCol].occupiedBy.name == "whiteking") {
+        else if (board[finalRow][finalCol].occupiedBy.name == "whiteking") {
             window.alert("black wins")
             window.location.reload()
         }

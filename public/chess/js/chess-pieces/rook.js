@@ -54,6 +54,31 @@ class rook {
 
         while (++cur_col < 8 && addMove());
 
+        // check for castling, rook must not have moved
+        if (this.hasMoved === false) {
+            console.log('checking for castling from rook')
+            // the king must not have moved
+            if (board[row][4].occupiedBy != null && board[row][4].occupiedBy.hasMoved === false) {
+                // check for king side castling
+                if (col > 4) {
+                    console.log('checking for king side castling from rook')
+                    if (board[row][5].occupiedBy == null && board[row][6].occupiedBy == null) {
+                        console.log('king side castling from rook possible')
+                        moves.push(board[row][4])
+                    }
+                }
+                // check for queen side castling
+                
+                if (col < 4) {
+                    console.log('checking for queen side castling from rook')
+                    if (board[row][1].occupiedBy == null && board[row][2].occupiedBy == null && board[row][3].occupiedBy == null) {
+                        console.log('king side castling from rook possible')
+                        moves.push(board[row][4])
+                    }
+                }
+            }
+        }
+
         function addMove() {
             const cell = board[cur_row][cur_col]
             if (cell.occupiedBy == null) {

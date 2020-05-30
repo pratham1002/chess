@@ -71,6 +71,23 @@ class king {
         cur_col = col
         addMove()
 
+        // check for castling
+        if (this.hasMoved === false) {
+            // the rook must not have moved
+            if (board[row][7].occupiedBy != null && board[row][7].occupiedBy.hasMoved === false) {
+                // check for king side castling                
+                if (board[row][5].occupiedBy == null && board[row][6].occupiedBy == null) {
+                    moves.push(board[row][7])
+                }
+            }
+            if (board[row][0].occupiedBy != null && board[row][0].occupiedBy.hasMoved === false) {
+                // check for queen side castling
+                if (board[row][1].occupiedBy == null && board[row][2].occupiedBy == null && board[row][3].occupiedBy == null) {
+                        moves.push(board[row][0])
+                }
+            }
+        }
+
         function addMove() {
             if (cur_row >= 0 && cur_col >= 0 && cur_row < 8 && cur_col < 8) {
                 const cell = board[cur_row][cur_col]

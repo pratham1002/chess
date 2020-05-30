@@ -3,7 +3,7 @@ function joinRoom() {
 
     $registrationForm.addEventListener('submit', async (e) => {
         e.preventDefault()
-        document.getElementById('formSubmit').setAttribute("disabled", "disabled");
+        document.getElementById('formSubmit').setAttribute("disabled", "disabled")
         const $username = document.getElementById('username')
         const $room = document.getElementById('room')
         console.log($username.value + ' ' + $room.value)
