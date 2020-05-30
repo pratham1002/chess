@@ -3,13 +3,17 @@ function joinRoom() {
 
     $registrationForm.addEventListener('submit', async (e) => {
         e.preventDefault()
-
+        document.getElementById('formSubmit').setAttribute("disabled", "disabled");
         const $username = document.getElementById('username')
         const $room = document.getElementById('room')
         console.log($username.value + ' ' + $room.value)
         username = $username.value
         await socket.emit('join', $username.value, $room.value, (error) => {
             if (error) {
+                const $sameUsername = document.createElement('div')
+                $sameUsername.setAttribute('id', 'sameUsername')
+                $sameUsername.innerHTML = "the username is already in use, please refresh and use a different username"
+                document.getElementById('registration').appendChild($sameUsername)
 				return console.log(error)
 			}
             console.log("Room Joined")
@@ -19,6 +23,9 @@ function joinRoom() {
 		    is_paired = bool
 		    if (!is_paired) {
                 console.log("Waiting to pair")
+                if (document.getElementById('sameUsername')) {
+                    return
+                }
                 const $waitForOpponent = document.createElement('div')
                 $waitForOpponent.innerHTML = "Waiting for opponent to join, do not refresh page, game will start automatically when opponent joins"
                 document.getElementById('registration').appendChild($waitForOpponent)

@@ -20,6 +20,7 @@ function createRegistrationForm() {
     form.appendChild(room)
 
     const submit = document.createElement('input')
+    submit.setAttribute('id', 'formSubmit')
     submit.setAttribute('type', 'submit')
     form.appendChild(submit)
 
