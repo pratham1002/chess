@@ -43,27 +43,7 @@ function movePiece(initial, final) {
     document.getElementById(final).innerHTML = document.getElementById(initial).innerHTML
     document.getElementById(initial).innerHTML = ""
 
-    if (turn === "white") {
-        turn = "black"
-    }
-    else {
-        turn = "white"
-    }
+    changeTurn()
 
-    if (me != turn) {
-        freezeClic = true
-        document.addEventListener("click", freezeClicFn, true);
-    }
-    else {
-        freezeClic = false
-    }
-
-    function freezeClicFn(e) {
-        if (freezeClic) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
-    }
-    document.getElementById('turn').innerHTML = "Currently " + turn + " to play"
     preCalculateMoves()
 }
