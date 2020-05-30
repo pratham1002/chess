@@ -40,7 +40,10 @@ io.on('connection', (socket) => {
             if (isPaired(socket.id)) {
                 const user = getUser(username)
                 const opponent = getOpponent(socket.id)
-                callback(true, "black")
+                callback(true)
+                socket.emit('start', 'black')
+                // socket.join(user.room)
+                // io.sockets.in(user.room).emit('start', 'white')
                 socket.to(user.room).emit('start', "white")               
             }
             else {

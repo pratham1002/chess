@@ -15,20 +15,19 @@ function joinRoom() {
             console.log("Room Joined")
         })
 
-        socket.emit('pair', $username.value , (bool, color) => {
+        socket.emit('pair', $username.value , (bool) => {
 		    is_paired = bool
-		    console.log("Paired ", is_paired)
 		    if (!is_paired) {
-			    console.log("Waiting to pair")
-            }
-            else {
-                me = color
-                startGame()
+                console.log("Waiting to pair")
+                const $waitForOpponent = document.createElement('div')
+                $waitForOpponent.innerHTML = "Waiting for opponent to join, do not refresh page, game will start automatically when opponent joins"
+                document.getElementById('registration').appendChild($waitForOpponent)
             }
 	    })
     }) 
 
     socket.on('start', (color) => {
+        console.log('socket start fn')
         me = color
         startGame()
     })
