@@ -10,11 +10,20 @@ function joinRoom() {
         username = $username.value
         await socket.emit('join', $username.value, $room.value, (error) => {
             if (error) {
-                const $sameUsername = document.createElement('div')
-                $sameUsername.setAttribute('id', 'sameUsername')
-                $sameUsername.innerHTML = "the username is already in use, please refresh and use a different username"
-                document.getElementById('registration').appendChild($sameUsername)
-				return console.log(error)
+                if (error === 'Username is in use!') {
+                    const $error = document.createElement('div')
+                    $error.setAttribute('id', 'error')
+                    $error.innerHTML = "the username is already in use, please refresh and use a different username"
+                    document.getElementById('registration').appendChild($error)
+				    return console.log(error)
+                }
+                else {
+                    const $error = document.createElement('div')
+                    $error.setAttribute('id', 'error')
+                    $error.innerHTML = "the room is already full, please refresh and use a different room"
+                    document.getElementById('registration').appendChild($error)
+				    return console.log(error)
+                }
 			}
             console.log("Room Joined")
         })
@@ -23,7 +32,7 @@ function joinRoom() {
 		    is_paired = bool
 		    if (!is_paired) {
                 console.log("Waiting to pair")
-                if (document.getElementById('sameUsername')) {
+                if (document.getElementById('error')) {
                     return
                 }
                 const $waitForOpponent = document.createElement('div')

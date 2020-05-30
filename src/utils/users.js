@@ -90,7 +90,7 @@ const getOpponent = (id) => {
 }
 const getUsersInRoom = (room) => {
     room = room.trim().toLowerCase()
-    return pairedUsers.filter((user) => user.room === room)
+    return pairedUsers.filter((user) => user.room === room).concat(users.filter((user) => user.room === room))
 }
 
 const getPairedUsers = () => {

@@ -22,6 +22,11 @@ io.on('connection', (socket) => {
                 return callback(error)
             }
 
+            if (getUsersInRoom(user.room).length > 2) {
+                return callback('room full')
+            }
+            console.log('users in the room :' + getUsersInRoom(user.room).length)
+
             socket.join(user.room)
 
             console.log('Paired on join', getPairedUsers())
