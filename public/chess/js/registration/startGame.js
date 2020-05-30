@@ -1,4 +1,7 @@
 function startGame() {
+    // delete the form
+    document.getElementById('registration').parentElement.removeChild(document.getElementById('registration'))
+
     initialiseBoard()
     renderBoard()
     spawnPieces("black")
