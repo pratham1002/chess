@@ -66,8 +66,9 @@ const removeUser = (id) => {
     }
 }
 
-const getUser = (id) => {
-    const user = pairedUsers.find((user) => user.username === id)
+const getUser = (username) => {
+    username = username.trim().toLowerCase()
+    const user = pairedUsers.find((user) => user.username === username)
 
     return user;
 }

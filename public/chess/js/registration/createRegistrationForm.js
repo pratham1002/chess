@@ -10,6 +10,7 @@ function createRegistrationForm() {
     username.setAttribute('placeholder','Enter username')
     username.setAttribute('name', 'username')
     username.setAttribute('type', 'text')
+    username.setAttribute('required', 'true')
     form.appendChild(username)
 
     const room = document.createElement('input')
@@ -17,6 +18,7 @@ function createRegistrationForm() {
     room.setAttribute('placeholder', 'Enter room name')
     room.setAttribute('name', 'room')
     room.setAttribute('type', 'text')
+    room.setAttribute('required', 'true')
     form.appendChild(room)
 
     const submit = document.createElement('input')
