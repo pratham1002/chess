@@ -1,4 +1,4 @@
-class knight {
+class Knight {
     constructor(location, color) {
         this.location = location
         this.color = color

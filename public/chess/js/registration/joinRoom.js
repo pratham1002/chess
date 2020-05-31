@@ -57,4 +57,8 @@ function joinRoom() {
         console.log('opponent moved = ' + initial + ' to ' + final)
         movePiece(initial, final)
     })
+
+    socket.on('opponentConverted', (piece, choices, final, finalRow, finalCol) => {
+        opponentConversion(piece, choices, final, finalRow, finalCol)
+    })
 }

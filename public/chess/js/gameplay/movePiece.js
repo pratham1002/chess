@@ -40,6 +40,14 @@ function movePiece(initial, final) {
         }
     }
 
+    // check for pawn being moved to last row
+    if (board[initialRow][initialCol].occupiedBy.name.search('pawn') != -1) {
+        console.log('checking for pawn being moved to last row')
+        if (finalRow == 0 || finalRow == 7) {
+            return convertPawn(initialRow, initialCol, finalRow, finalCol)
+        }
+    }
+
     board[initialRow][initialCol].occupiedBy.moved = true
     board[finalRow][finalCol].occupancy = board[initialRow][initialCol].occupiedBy
     board[initialRow][initialCol].occupancy = null

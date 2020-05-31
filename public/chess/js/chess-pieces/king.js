@@ -1,4 +1,4 @@
-class king {
+class King {
     constructor(location, color) {
         this.location = location
         this.color = color

@@ -75,6 +75,13 @@ io.on('connection', (socket) => {
         // callback();
     })
 
+    socket.on('convert', (username, piece, choices, final, finalRow, finalCol) => {
+        const user = getUser(username)
+        // console.log(user.room)
+        socket.to(user.room).emit('opponentConverted', piece, choices, final, finalRow, finalCol)
+        // callback();
+    })
+
     socket.on('end', (player) => {
         // winner recieved from client side, run database changes here
     })

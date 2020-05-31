@@ -1,4 +1,4 @@
-class pawn {
+class Pawn {
     constructor(location, color) {
         this.location = location
         this.color = color

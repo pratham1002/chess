@@ -1,4 +1,4 @@
-class bishop {
+class Bishop {
     constructor(location, color) {
         this.location = location
         this.color = color
