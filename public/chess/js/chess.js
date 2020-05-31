@@ -1,6 +1,6 @@
 const socket = io()
 
-var board = [[]]
+var board = []
 var pieces = [[], []]
 var turn = "white"
 var me
