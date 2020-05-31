@@ -27,33 +27,41 @@ function replicateMainBoard() {
                 if (pieceType == 'Pawn') {
                     new_pawn = new Pawn(cell, piece.color)
                     cur_board[cell.row][cell.col].occupancy = new_pawn
+                    cur_board[cell.row][cell.col].occupiedBy.moved = board[cell.row][cell.col].occupiedBy.hasMoved
                 }
 
                 if (pieceType == 'Rook') {
                     new_rook = new Rook(cell, piece.color)
                     cur_board[cell.row][cell.col].occupancy = new_rook
+                    cur_board[cell.row][cell.col].occupiedBy.moved = board[cell.row][cell.col].occupiedBy.hasMoved
                 }
 
                 if (pieceType == 'Knight') {
                     new_knight = new Knight(cell, piece.color)
                     cur_board[cell.row][cell.col].occupancy = new_knight
+                    cur_board[cell.row][cell.col].occupiedBy.moved = board[cell.row][cell.col].occupiedBy.hasMoved
                 }
 
                 if (pieceType == 'Bishop') {
                     new_bishop = new Bishop(cell, piece.color)
                     cur_board[cell.row][cell.col].occupancy = new_bishop
+                    cur_board[cell.row][cell.col].occupiedBy.moved = board[cell.row][cell.col].occupiedBy.hasMoved
                 }
 
                 if (pieceType == 'Queen') {
                     new_queen = new Queen(cell, piece.color)
                     cur_board[cell.row][cell.col].occupancy = new_queen
+                    cur_board[cell.row][cell.col].occupiedBy.moved = board[cell.row][cell.col].occupiedBy.hasMoved
                 }
 
                 if (pieceType == 'King') {
                     new_king = new King(cell, piece.color)
                     cur_board[cell.row][cell.col].occupancy = new_king
+                    cur_board[cell.row][cell.col].occupiedBy.moved = board[cell.row][cell.col].occupiedBy.hasMoved
                 }
             }
         })
     }) 
+
+    return cur_board
 }

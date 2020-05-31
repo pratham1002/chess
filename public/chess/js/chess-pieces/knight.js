@@ -30,7 +30,7 @@ class Knight {
         const selfColor = this.color
         let cur_row, cur_col
         // from any location on the board, the knight can move to a maximum of 8 places
-        
+        console.log('main board before calculating moves for',selfColor, 'knight:', board)
         // 1
         cur_row = row - 2
         cur_col = col - 1
@@ -73,18 +73,33 @@ class Knight {
 
         function addMove() {
             if (cur_row >= 0 && cur_col >= 0 && cur_row < 8 && cur_col < 8) {
-                const cell = board[cur_row][cur_col]
-
-                if (cell.occupiedBy == null) {
-                    moves.push(cell)
+                console.log('turn =', turn, 'selfColor =', selfColor)
+                if (selfColor === turn) {
+                    const cell = board[cur_row][cur_col]
+                    // console.log('does move cause a check = ', moveNewBoard(row, col, cur_row, cur_col))
+                    if (cell.occupiedBy == null && !moveNewBoard(row, col, cur_row, cur_col)) {
+                        moves.push(cell)
+                    }
+                    else if (cell.occupiedBy.color != selfColor && !moveNewBoard(row, col, cur_row, cur_col)) {
+                        moves.push(cell)
+                    }
                 }
-                else if (cell.occupiedBy.color != selfColor) {
-                    moves.push(cell)
+                if (selfColor != turn) {
+                    const cell = board[cur_row][cur_col]
+
+                    if (cell.occupiedBy == null) {
+                        moves.push(cell)
+                    }
+                    else if (cell.occupiedBy.color != selfColor) {
+                        moves.push(cell)
+                    }
                 }
             }
         }
 
-        // console.log(moves)
+        console.log(moves)
+
+        console.log('main board after calculating moves for', selfColor, 'knight:', board)
         return moves
     }
 } 
