@@ -21,7 +21,7 @@ class Rook {
     }
 
     legalMoves() {
-        console.log("calculating moves for ", this)
+        // console.log("calculating moves for ", this)
         let moves = []
 
         // the rook's movement is bidirectional so no need of separate cases for black and white
@@ -56,12 +56,12 @@ class Rook {
 
         // check for castling, rook must not have moved
         if (this.hasMoved === false) {
-            console.log('checking for castling from rook')
+            // console.log('checking for castling from rook')
             // the king must not have moved
             if (board[row][4].occupiedBy != null && board[row][4].occupiedBy.hasMoved === false) {
                 // check for king side castling
                 if (col > 4) {
-                    console.log('checking for king side castling from rook')
+                    // console.log('checking for king side castling from rook')
                     if (board[row][5].occupiedBy == null && board[row][6].occupiedBy == null) {
                         console.log('king side castling from rook possible')
                         moves.push(board[row][4])
@@ -70,7 +70,7 @@ class Rook {
                 // check for queen side castling
                 
                 if (col < 4) {
-                    console.log('checking for queen side castling from rook')
+                    /// console.log('checking for queen side castling from rook')
                     if (board[row][1].occupiedBy == null && board[row][2].occupiedBy == null && board[row][3].occupiedBy == null) {
                         console.log('king side castling from rook possible')
                         moves.push(board[row][4])
@@ -94,7 +94,7 @@ class Rook {
             }
         }
         
-        console.log(moves)
+        // console.log(moves)
         return moves
     }
 }

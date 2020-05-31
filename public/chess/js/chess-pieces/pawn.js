@@ -21,7 +21,7 @@ class Pawn {
     }
 
     legalMoves() {
-        console.log("calculating moves for ", this)
+        // console.log("calculating moves for ", this)
         let moves = []
 
         // current location
@@ -73,7 +73,7 @@ class Pawn {
             }
         }
 
-        console.log(moves)
+        // console.log(moves)
         return moves
     }
 }

@@ -21,7 +21,7 @@ class Queen {
     }
 
     legalMoves() {
-        console.log("calculating moves for ", this)
+        // console.log("calculating moves for ", this)
         let moves = []
 
         // the queen's movement is bidirectional so no need of separate cases for black and white
@@ -93,7 +93,7 @@ class Queen {
             }
         }
 
-        console.log(moves)
+        // console.log(moves)
         return moves
     }
 }

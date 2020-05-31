@@ -21,7 +21,7 @@ class King {
     }
 
     legalMoves() {
-        console.log("calculating moves for ", this)
+        // console.log("calculating moves for ", this)
         let moves = []
 
         // the king's movement is bidirectional so no need of separate cases for black and white
@@ -101,7 +101,7 @@ class King {
             }
         }
 
-        console.log(moves)
+        // console.log(moves)
         return moves
     }
 }

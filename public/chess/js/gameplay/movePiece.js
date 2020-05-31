@@ -58,5 +58,7 @@ function movePiece(initial, final) {
 
     changeTurn()
 
+    console.log(turn, 'in check = ', inCheck(board))
+
     preCalculateMoves()
 }

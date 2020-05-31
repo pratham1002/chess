@@ -1,7 +1,7 @@
 function findMoves(id) {
-    console.log('currently ' + turn + ' to play, i am ' + me)
+    // console.log('currently ' + turn + ' to play, i am ' + me)
     if (me === turn) {
-        console.log('sending the clicked id')
+        // console.log('sending the clicked id')
         socket.emit('play', username, id)
     }
     const id_data = id.split("")

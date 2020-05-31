@@ -21,7 +21,7 @@ class Bishop {
     }
 
     legalMoves() {
-        console.log("calculating moves for ", this)
+        // console.log("calculating moves for ", this)
         let moves = []
 
         // the bishop's movement is bidirectional so no need of separate cases for black and white
@@ -69,7 +69,7 @@ class Bishop {
             }
         }
 
-        console.log(moves)
+        // console.log(moves)
         return moves
     }
 }
