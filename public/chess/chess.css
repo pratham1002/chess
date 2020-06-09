@@ -72,3 +72,33 @@ main
     flex: auto;
     text-align: center;
 }
+
+@media only screen and (max-width: 500px) 
+{
+    #board 
+    {
+        width: 320px;
+        height: 320px;
+    }
+
+    .box 
+    {
+        height: 38px;
+        width: 38px;
+    }
+
+    .piecePhoto
+    {
+        height: 32px;
+        width: 32px;
+        padding: 3px;
+    }
+
+    .dot 
+    {   
+        height: 18px;
+        width: 18px;
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+}
