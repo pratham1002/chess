@@ -5,6 +5,12 @@ function movePiece(initial, final) {
     }
 
     deleteHighlights()
+    try {
+    document.getElementById('check').parentNode.removeChild(document.getElementById('check'))
+    }
+    catch (e) {
+        
+    }
     console.log(initial + ' to ' + final)
 
     if (initial < 10) {
@@ -58,8 +64,14 @@ function movePiece(initial, final) {
 
     changeTurn()
 
-    console.log(turn, 'in check = ', inCheck(board))
-    replicateMainBoard()
+    console.log(turn, "in check = ", inCheck(board))
+    if (inCheck(board)) {
+        const check = document.createElement('id')
+        check.setAttribute('id', 'check')
+        check.innerHTML = "CHECK"
+        document.body.appendChild(check)
+    }
+    // replicateMainBoard()
 
     preCalculateMoves()
 }
