@@ -21,9 +21,10 @@ function createRegistrationForm() {
     room.setAttribute('required', 'true')
     form.appendChild(room)
 
-    const submit = document.createElement('input')
+    const submit = document.createElement('button')
     submit.setAttribute('id', 'formSubmit')
     submit.setAttribute('type', 'submit')
+    submit.innerHTML = "Play!"
     form.appendChild(submit)
 
     $registration.appendChild(form)

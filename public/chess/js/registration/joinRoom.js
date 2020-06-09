@@ -42,10 +42,10 @@ function joinRoom() {
 	    })
     }) 
 
-    socket.on('start', (color) => {
+    socket.on('start', (color, info) => {
         console.log('socket start fn')
         me = color
-        startGame()
+        startGame(info)
     })
 
     socket.on('opponentPlayed', (id) => {

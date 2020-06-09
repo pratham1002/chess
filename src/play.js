@@ -46,10 +46,11 @@ io.on('connection', (socket) => {
                 const user = getUser(username)
                 const opponent = getOpponent(socket.id)
                 callback(true)
-                socket.emit('start', 'black')
+                const info = opponent.username + " vs " + user.username
+                socket.emit('start', 'black', info)
                 // socket.join(user.room)
                 // io.sockets.in(user.room).emit('start', 'white')
-                socket.to(user.room).emit('start', "white")               
+                socket.to(user.room).emit('start', "white", info)               
             }
             else {
                 console.log('unpaired')
