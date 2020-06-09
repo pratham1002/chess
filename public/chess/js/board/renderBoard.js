@@ -1,5 +1,9 @@
 function renderBoard() {
-    const $board = document.getElementById("board");
+    const $board = document.createElement("div")
+    $board.setAttribute('id', 'board')
+    document.getElementById("root").appendChild($board)
+    
+    // document.getElementById("board");
 
     board.forEach((row) => {
         row.forEach((box) => {

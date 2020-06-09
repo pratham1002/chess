@@ -18,7 +18,7 @@ function convertPawn(initialRow, initialCol, finalRow, finalCol) {
     // now ask the player what they want in place of pawn
     const choices = document.createElement('div')
     choices.innerHTML = "Please choose what you want in place of pawn"
-    document.body.appendChild(choices)
+    document.getElementById("root").appendChild(choices)
 
     const queen = document.createElement('button') 
     queen.innerHTML = "Queen"

@@ -69,7 +69,7 @@ function movePiece(initial, final) {
         const check = document.createElement('id')
         check.setAttribute('id', 'check')
         check.innerHTML = "CHECK"
-        document.body.appendChild(check)
+        document.getElementById("root").appendChild(check)
     }
     // replicateMainBoard()
 
