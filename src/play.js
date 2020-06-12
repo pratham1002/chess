@@ -46,7 +46,7 @@ io.on('connection', (socket) => {
                 const user = getUser(username)
                 const opponent = getOpponent(socket.id)
                 callback(true)
-                const info = opponent.username + " vs " + user.username
+                const info = opponent.username + " (white) " + " vs " + user.username + " (black) "
                 socket.emit('start', 'black', info)
                 // socket.join(user.room)
                 // io.sockets.in(user.room).emit('start', 'white')
