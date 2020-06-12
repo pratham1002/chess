@@ -21,7 +21,7 @@
 .green 
 {
     
-    background: cyan;
+    background: #ffc1cc;
 }
 
 .white
@@ -61,7 +61,7 @@ html, body
 header,footer 
 {
     flex: none;
-    background-color: cyan;
+    background-color: #ffc1cc;
     text-align: center;
     height: 10%;
 }
