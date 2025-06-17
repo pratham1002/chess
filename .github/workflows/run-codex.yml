@@ -23,7 +23,7 @@ jobs:
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          codex exec "${{ github.event.inputs.prompt }}" > codex-output.txt
+          codex exec "${{ github.event.inputs.prompt }}" 2>&1 | tee codex-output.txt
           echo "Codex execution completed"
       - name: Upload Codex output
         uses: actions/upload-artifact@v4
