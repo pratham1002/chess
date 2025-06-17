@@ -1,0 +1,27 @@
+name: Run Codex Agent
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Command string for Codex'
+        required: true
+        type: string
+
+jobs:
+  codex_job:
+    runs-on: ubuntu-latest
+    environment:
+      name: OpenAI
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install Codex CLI
+        run: |
+          npm install -g @openai/codex@native
+      - name: Run Codex with prompt
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          codex exec "${{ github.event.inputs.prompt }}"
+          echo "Codex execution completed"
