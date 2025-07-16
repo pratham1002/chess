@@ -1,0 +1,40 @@
+name: DeepWiki CI
+
+on:
+  push:
+    branches: [pratham/deepwikitest]
+  pull_request:
+
+jobs:
+  deepwiki-job:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/asyncfuncai/deepwiki-open:latest
+      # If it's private, add credentials:
+      # credentials:
+      #   username: ${{ github.actor }}
+      #   password: ${{ secrets.GHCR_TOKEN }}
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ports:
+        - 3000:3000
+        - 8001:8001
+      options: --cpus 2
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify DeepWiki server is present
+        run: |
+          echo "Contents of /app:"
+          ls -R /
+      
+      - name: Run DeepWiki health endpoint
+        run: |
+          curl -s http://localhost:8001/health || echo "Health check failed"
+
+      - name: Custom test
+        run: |
+          echo "Add any scripts/tools/tests you need here"
+
